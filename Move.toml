@@ -1,0 +1,12 @@
+[package]
+name = 'pseudo-random-generator'
+version = '1.0.0'
+
+[addresses]
+pseudorandom = "0xd70a4960262fd2cac9be842d47ed837c14a655cd4b475a2616ac326361ea2735"
+Std = "0x1"
+aptos_std = "0x1"
+
+[dependencies]
+AptosFramework = { local = "/Users/samundrakarki/aptos-core/aptos-move/framework/aptos-framework"}
+AptosStdlib = { local = "/Users/samundrakarki/aptos-core/aptos-move/framework/aptos-stdlib" }
