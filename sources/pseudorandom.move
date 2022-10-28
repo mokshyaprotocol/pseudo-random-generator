@@ -4,6 +4,7 @@ module pseudorandom::random{
     use aptos_std::from_bcs;
     use std::hash;
     use aptos_framework::timestamp;
+    use aptos_framework::transaction_context;
 
     const ENO_OVERFLOW:u64 = 0;
     
@@ -14,7 +15,8 @@ module pseudorandom::random{
         let z = bcs::to_bytes<u64>(&timestamp::now_seconds());
         vector::append(&mut x,y);
         vector::append(&mut x,z);
-
+        let script_hash: vector<u8> = transaction_context::get_script_hash();
+        vector::append(&mut x,script_hash);
         let tmp = hash::sha2_256(x);
 
         let data = vector<u8>[];
